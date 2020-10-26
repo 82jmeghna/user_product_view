@@ -75,7 +75,7 @@ exports.display_user_weekly = async (req, res) => {
         var product_id = req.body.ProductID;
         var startDay = moment().day(0);;
         var endDay = moment().day(6);;
-        userView_schema.find({ ProductID: product_id, ViewDate: { '$gte': startDay, '$lte': endDay } }, (err, data) => {
+        await userView_schema.find({ ProductID: product_id, ViewDate: { '$gte': startDay, '$lte': endDay } }, (err, data) => {
             if (err) {
                 res.send(err);
             } if (data.length <= 0) {
